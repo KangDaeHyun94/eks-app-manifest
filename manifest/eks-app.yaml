@@ -45,6 +45,13 @@ spec:
       containers:
       - name: eks-app-container
         image: 676206915500.dkr.ecr.ap-northeast-2.amazonaws.com/eks-app:ccf987b90f3d50b7b7e4709949619db4d1794732
+        volumeMounts:
+        - name: empty-dir
+          mountPatch: /mount
         ports:
           - protocol: TCP
             containerPort: 8080
+      volumes:
+        - emptyDir: {}
+          name: empty-dir
+      
